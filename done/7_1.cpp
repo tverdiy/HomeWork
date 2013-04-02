@@ -2,7 +2,7 @@
 
 using namespace std;
 template <class Type>
-int lineSeach(Type a[], int len,  Type elem)
+int lineSearch(Type a[], int len,  Type elem)
 {
 	for (int i = 0; i < len; ++i)
 	{
@@ -11,26 +11,26 @@ int lineSeach(Type a[], int len,  Type elem)
 	return -1;
 }
 template <class Type>
-int binSeach(Type a[], int len,  Type elem)
+int binSearch(Type a[], int len,  Type elem)
 {
 	int now_i, from, to;
 	from = 0;
 	to = len - 1;
 	now_i = len / 2;
-	while (a[now_i] != elem && now_i < len)
+	while (to != from)
 	{
 		if (a[now_i] > elem)
 		{
-			from = now_i;
-			++now_i;
-		}
-		else 
-		{
 			to = now_i;
-			++now_i;
+			now_i = (from + to) / 2;
 		}
+		else if (a[now_i] < elem) 
+		{
+			from = now_i;
+			now_i = (from + to) / 2;
+		}
+		else return now_i;
 	}
-	if (now_i < len) return now_i;
 	return -1;
 }
 int main()
@@ -41,8 +41,8 @@ int main()
 	cin >> srav;
 	for (int i = 0; i < len; ++i) 
 		cin >> mas[i];
-	cout << lineSeach(mas, len, srav) << endl;
-	cout << binSeach(mas, len, srav) << endl;
+	cout << lineSearch(mas, len, srav) << endl;
+	cout << binSearch(mas, len, srav) << endl;
 	system("pause");
 	return 0;
 }
