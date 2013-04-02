@@ -63,7 +63,6 @@ double func(char *s)
 		++k;
 	}
 	num[k] = '\0';
-	++k;
 	in = atof(num);
 	cout << in << endl;
 	while (k != strlen(s)) 
@@ -77,7 +76,6 @@ int main()
 {
 	char s[100];
 	getline(s,100);
-	//char c = 'c'; 
 	cout << func(s) << endl;
 	system("pause");
 	return 0;
