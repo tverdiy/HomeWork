@@ -9,6 +9,7 @@ int found(int a[100], int n, int k)
 	for (int i = 0; i < n;  ++i)
 	{
 		if (max < a[i]) max = a[i];
+		if (now > a[i]) now = a[i];
 	}
 	min = max;
 	for (int i = 0; i < k; ++i)
