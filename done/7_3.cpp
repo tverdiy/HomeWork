@@ -9,10 +9,10 @@ int found(int a[100], int n, int k)
 	for (int i = 0; i < n;  ++i)
 	{
 		if (max < a[i]) max = a[i];
-		if (now > a[i]) now = a[i];
+		if (now > a[i]) now = a[i] - 1;
 	}
 	min = max;
-	for (int i = 0; i < k; ++i)
+	for (int i = 0; i <= k; ++i)
 	{
 		for (int j = 0; j < n; ++j)
 		{
@@ -39,7 +39,7 @@ int main()
 	{
 		cin >> a[i];
 	}
-	cout << found(a, len, numb);
+	for (int i = 0; i < len; ++i) cout << found(a, len, i) << " ";
 	system("pause");
 	return 0;
 }
