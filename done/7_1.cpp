@@ -15,21 +15,25 @@ int binSearch(Type a[], int len,  Type elem)
 {
 	int now_i, from, to;
 	from = 0;
-	to = len - 1;
+	to = len;
 	now_i = len / 2;
-	while (to != from)
+	int hi = log(double(len)) / log(2.0);
+	++hi;
+	while (hi)
 	{
-		if (a[now_i] > elem)
+		if (a[now_i] == elem) return now_i;
+		else if (a[now_i] > elem) 
 		{
 			to = now_i;
-			now_i = (from + to) / 2;
+			now_i = (from + to ) / 2;
+			--hi;
 		}
-		else if (a[now_i] < elem) 
+		else if (a[now_i] < elem)
 		{
 			from = now_i;
 			now_i = (from + to) / 2;
+			--hi;
 		}
-		else return now_i;
 	}
 	return -1;
 }
