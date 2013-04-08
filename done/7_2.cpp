@@ -10,9 +10,10 @@ int main()
 {
 	int m, n, ans;
 	int nowNum, now_i, now_j;
-	now_i = now_j = 0;
+	now_j = 0;
 	int a[100][100];
 	cin >> m >> n;
+	now_i = m - 1;
 	for (int i = 0; i < m; ++i)
 		for (int j = 0; j < n; ++j)
 			cin >> a[i][j];
@@ -23,7 +24,7 @@ int main()
 		if (a[now_i][now_j + 1] < a[now_i + 1][now_j])
 			++now_j;
 		else 
-			++now_i;
+			--now_i;
 	}
 	cout << now_i << " " << now_j << endl;
 	system("pause");
