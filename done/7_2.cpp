@@ -25,8 +25,7 @@ int main()
 			++now_j;
 		else 
 			--now_i;
-	}
-	cout << now_i << " " << now_j << endl;
+	}	cout << now_i << " " << now_j << endl;
 	system("pause");
 	return 0;
 }
